@@ -13,22 +13,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React, { useState } from "react";
 
-async function fetchMusicData(musicLink: string) {
-  const response = await fetch(`https://api.cynanite.com/analyze`, {
-    method: "POST", // Assuming POST request (change if required)
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ url: musicLink }), // Send the music URL to the API
-  });
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch music data");
-  }
-
-  const data = await response.json();
-  return data;
-}
 
 export function MusicInput() {
   const [musicLink, setMusicLink] = useState("");
@@ -45,7 +29,7 @@ export function MusicInput() {
         <DialogHeader>
           <DialogTitle>Input Music Link</DialogTitle>
           <DialogDescription>
-            Put the YouTube link of your music here. Click check when you're
+            Put the YouTube link of your music here. Click check when you&apos;re
             done!
           </DialogDescription>
         </DialogHeader>
